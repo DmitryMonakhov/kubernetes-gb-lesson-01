@@ -1,3 +1,15 @@
+## Создаем ```namespace``` kubedoom с помощью манифеста:
+```sh
+kubectl apply -f namespace.yml
+```
+## Создаем сервисную учетную запись с помощью манифеста:
+```sh
+kubectl apply -f rbac.yml
+```
+## Создаем deployment с помощью манифеста:
+```sh
+kubectl apply -f deployment.yml
+```
 ```sh
 kubectl describe deployments -n kubedoom
 ```
