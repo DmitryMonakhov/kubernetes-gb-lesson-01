@@ -1,4 +1,12 @@
 ```sh
+kubectl get deployments -n kubedoom -owide
+```
+```
+NAME       READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES                     SELECTOR
+kubedoom   1/1     1            1           63m   kubedoom     storaxdev/kubedoom:0.5.0   app=kubedoom
+```
+
+```sh
 kubectl describe po -n kubedoom
 ```
 ```
