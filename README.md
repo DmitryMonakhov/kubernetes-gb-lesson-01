@@ -1,20 +1,48 @@
 ```sh
-kubectl get deployments -n kubedoom -owide
+kubectl describe deployments -n kubedoom
 ```
 ```
-NAME       READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES                     SELECTOR
-kubedoom   1/1     1            1           63m   kubedoom     storaxdev/kubedoom:0.5.0   app=kubedoom
+Name:                   kubedoom
+Namespace:              kubedoom
+CreationTimestamp:      Sat, 14 Aug 2021 02:34:01 -0400
+Labels:                 app=kubedoom
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               app=kubedoom
+Replicas:               1 desired | 1 updated | 1 total | 1 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  0 max unavailable, 1 max surge
+Pod Template:
+  Labels:           app=kubedoom
+  Service Account:  kubedoom
+  Containers:
+   kubedoom:
+    Image:        storaxdev/kubedoom:0.5.0
+    Port:         5900/TCP
+    Host Port:    5900/TCP
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    NewReplicaSetAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   kubedoom-57b69fdbc (1/1 replicas created)
+Events:          <none>
+
 ```
 
 ```sh
 kubectl describe po -n kubedoom
 ```
 ```
-Name:         kubedoom-57b69fdbc-2nhlc
+Name:         kubedoom-57b69fdbc-mkpnl
 Namespace:    kubedoom
 Priority:     0
 Node:         kubernetes-gb-default-group-gb-0/10.0.0.8
-Start Time:   Sat, 14 Aug 2021 02:34:01 -0400
+Start Time:   Sat, 14 Aug 2021 04:31:35 -0400
 Labels:       app=kubedoom
               pod-template-hash=57b69fdbc
 Annotations:  <none>
@@ -25,13 +53,13 @@ IPs:
 Controlled By:  ReplicaSet/kubedoom-57b69fdbc
 Containers:
   kubedoom:
-    Container ID:   docker://644d125a80739dac674305d6b7ce08b168fac8179aa3fff0896978b898fa2062
+    Container ID:   docker://888ccd8c814b618741ced8ce3690488c2c3720c84cf6f595bfe29006d1c45e32
     Image:          storaxdev/kubedoom:0.5.0
     Image ID:       docker-pullable://storaxdev/kubedoom@sha256:88dfe1b5430a678a8f399593fd9b2d256c86b29518a6924965fe1f1758da8cca
     Port:           5900/TCP
     Host Port:      5900/TCP
     State:          Running
-      Started:      Sat, 14 Aug 2021 02:34:18 -0400
+      Started:      Sat, 14 Aug 2021 04:31:35 -0400
     Ready:          True
     Restart Count:  0
     Environment:    <none>
@@ -55,9 +83,8 @@ Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
 Events:
   Type    Reason     Age   From               Message
   ----    ------     ----  ----               -------
-  Normal  Scheduled  57m   default-scheduler  Successfully assigned kubedoom/kubedoom-57b69fdbc-2nhlc to kubernetes-gb-default-group-gb-0
-  Normal  Pulling    57m   kubelet            Pulling image "storaxdev/kubedoom:0.5.0"
-  Normal  Pulled     57m   kubelet            Successfully pulled image "storaxdev/kubedoom:0.5.0" in 16.05769983s
-  Normal  Created    57m   kubelet            Created container kubedoom
-  Normal  Started    57m   kubelet            Started container kubedoom
+  Normal  Scheduled  12s   default-scheduler  Successfully assigned kubedoom/kubedoom-57b69fdbc-mkpnl to kubernetes-gb-default-group-gb-0
+  Normal  Pulled     12s   kubelet            Container image "storaxdev/kubedoom:0.5.0" already present on machine
+  Normal  Created    12s   kubelet            Created container kubedoom
+  Normal  Started    12s   kubelet            Started container kubedoom
 ```
