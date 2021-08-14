@@ -10,6 +10,7 @@ kubectl apply -f rbac.yml
 ```sh
 kubectl apply -f deployment.yml
 ```
+### Проверяем созданные деплоймент и под:
 ```sh
 kubectl describe deployments -n kubedoom
 ```
