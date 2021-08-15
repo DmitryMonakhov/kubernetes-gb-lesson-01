@@ -1,3 +1,4 @@
+## Домашнее задание для к уроку 3 - Введение в Kubernetes
 ### Создаем ```namespace``` kubedoom с помощью манифеста:
 ```sh
 kubectl apply -f namespace.yml
